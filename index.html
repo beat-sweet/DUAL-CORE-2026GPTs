@@ -1,0 +1,515 @@
+import React, { useState, useEffect } from 'react';
+import { 
+  ShieldCheck, 
+  Compass, 
+  BrainCircuit, 
+  Eye, 
+  ZapOff, 
+  TrendingUp, 
+  CheckCircle2, 
+  XCircle,
+  ArrowRight,
+  ChevronRight,
+  Lock,
+  Globe,
+  Star,
+  BarChart3,
+  Anchor,
+  ShieldAlert,
+  Scale,
+  Info
+} from 'lucide-react';
+
+const App = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const purchaseLink = "https://note.com/famous_zebra937/n/n741a9dd53c00?sub_rt=share_pw";
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const evaluationCriteria = [
+    { icon: <Globe className="w-5 h-5" />, title: "相場構造理解", en: "Structural Understanding", desc: "マクロ・指数間関係・需給の横断的把握能力。" },
+    { icon: <ShieldAlert className="w-5 h-5" />, title: "リスク管理能力", en: "Risk Management", desc: "高値追い抑制・撤退・様子見の的確な判断。" },
+    { icon: <Scale className="w-5 h-5" />, title: "再現性", en: "Reproducibility", desc: "誰でも同じ判断軸を使える言語化能力。" },
+    { icon: <Anchor className="w-5 h-5" />, title: "煽り耐性", en: "Anti-Hype Discipline", desc: "断定・感情論に流されない冷静な分析力。" },
+    { icon: <Compass className="w-5 h-5" />, title: "思想・一貫性", en: "Consistency", desc: "発信と判断が一本の航路で接続されているか。" }
+  ];
+
+  const comparisonData = [
+    { name: "DUAL CORE 2026GPTs", structural: 19, risk: 19, repro: 18, anti: 19, logic: 18, total: 93, rank: "S+", highlight: true },
+    { name: "一般的投資GPT (Category A)", structural: 17, risk: 15, repro: 14, anti: 12, logic: 13, total: 71, rank: "A", highlight: false },
+    { name: "テクニカル特化GPT (Category B)", structural: 14, risk: 13, repro: 15, anti: 10, logic: 11, total: 63, rank: "B", highlight: false },
+    { name: "ニュース要約GPT (Category C)", structural: 12, risk: 10, repro: 11, anti: 9, logic: 10, total: 52, rank: "C", highlight: false },
+    { name: "煽り系予測GPT (Category D)", structural: 8, risk: 6, repro: 7, anti: 2, logic: 5, total: 28, rank: "D", highlight: false }
+  ];
+
+  return (
+    <div className="min-h-screen bg-[#05070a] text-slate-200 font-sans selection:bg-amber-500/30">
+      {/* Navigation */}
+      <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-[#05070a]/95 backdrop-blur-md border-b border-white/5 py-4' : 'bg-transparent py-6'}`}>
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 bg-gradient-to-br from-amber-500 to-amber-700 rounded-sm flex items-center justify-center">
+              <span className="text-black font-bold text-xs tracking-tighter">DC</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xs font-bold tracking-[0.3em] uppercase text-white leading-none">Dual Core 2026</span>
+              <span className="text-[8px] tracking-[0.2em] text-amber-500/80 uppercase mt-1 font-mono">Global Standard</span>
+            </div>
+          </div>
+          <div className="hidden lg:flex gap-10 text-[10px] tracking-[0.2em] uppercase opacity-60">
+            <a href="#concept" className="hover:opacity-100 hover:text-amber-500 transition-all">Concept</a>
+            <a href="#strength" className="hover:opacity-100 hover:text-amber-500 transition-all">Strength</a>
+            <a href="#feature" className="hover:opacity-100 hover:text-amber-500 transition-all">Capabilities</a>
+            <a href="#grading" className="hover:opacity-100 hover:text-amber-500 transition-all">Evaluation</a>
+            <a href="#pricing" className="hover:opacity-100 hover:text-amber-500 transition-all">Investment</a>
+          </div>
+          <a href={purchaseLink} target="_blank" rel="noopener noreferrer" className="hidden sm:flex items-center gap-2 bg-white/5 border border-white/10 px-5 py-2 text-[10px] tracking-widest uppercase hover:bg-amber-600 hover:text-white transition-all duration-300">
+            <Globe className="w-3 h-3" /> Get Access
+          </a>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-amber-600/5 rounded-full blur-[140px]"></div>
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10"></div>
+          <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-[#05070a] to-transparent"></div>
+        </div>
+
+        <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+          <p className="text-amber-500 text-[10px] md:text-xs tracking-[0.6em] mb-10 uppercase animate-pulse font-medium">
+            Beyond Prediction / 世界基準の航海図
+          </p>
+          <h1 className="text-5xl md:text-[84px] font-serif font-light leading-[1.1] mb-10 text-white tracking-tight">
+            相場を“当てに行く”<br />時代は終わった。
+          </h1>
+          <p className="text-xs md:text-sm tracking-[0.3em] text-slate-500 uppercase mb-10 font-light">
+            Stop Guessing. Start Navigating.
+          </p>
+          <div className="w-16 h-[1px] bg-amber-500/50 mx-auto mb-10"></div>
+          <p className="text-lg md:text-2xl text-slate-400 font-light max-w-3xl mx-auto mb-16 leading-relaxed">
+            — 潮目を読み、準備する投資GPTs。<br className="hidden md:block" />
+            <span className="text-white/80 italic font-serif">Dual Core logic for the modern investor.</span>
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <a href="#concept" className="group relative bg-amber-600 hover:bg-amber-500 text-white px-12 py-6 text-xs tracking-[0.2em] uppercase transition-all duration-500 w-full sm:w-auto flex items-center justify-center">
+              Our Philosophy / コンセプト
+              <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b border-r border-amber-400 group-hover:w-full group-hover:h-full transition-all"></div>
+            </a>
+            <a href={purchaseLink} target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-white px-12 py-6 text-xs tracking-[0.2em] uppercase border border-white/10 hover:border-white/30 backdrop-blur-sm transition-all w-full sm:w-auto text-center flex items-center justify-center">
+              Release Edition / 限定価格で試す
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Concept */}
+      <section id="concept" className="py-40 bg-[#080a0f] relative border-y border-white/5">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-24 items-center">
+            <div className="text-left">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-8 h-[1px] bg-amber-500"></div>
+                <h2 className="text-[10px] tracking-[0.4em] text-amber-500 uppercase font-bold">Why Dual Core?</h2>
+              </div>
+              <h3 className="text-4xl md:text-5xl font-serif font-light text-white mb-10 leading-tight">
+                なぜ “DUAL CORE” なのか
+              </h3>
+              <p className="text-slate-400 text-lg leading-relaxed mb-10">
+                2つの思考エンジンを同時に走らせる。<br />
+                <span className="text-slate-500 text-sm block mt-2 italic font-serif">A fusion of quantitative logic and psychological insight.</span>
+              </p>
+              <div className="space-y-10">
+                <div className="flex gap-6 group">
+                  <div className="w-14 h-14 rounded-sm border border-amber-500/20 bg-amber-500/5 flex items-center justify-center shrink-0 group-hover:border-amber-500/50 transition-colors">
+                    <BrainCircuit className="w-6 h-6 text-amber-500" />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-medium mb-2 tracking-[0.1em] uppercase text-sm">CORE 01 | AI LOGIC</h4>
+                    <p className="text-xs text-slate-500 leading-relaxed max-w-sm italic mb-2">Technical synthesis and inter-market relations.</p>
+                    <p className="text-sm text-slate-400">指数間の関係性、需給・温度感・乖離、再現性のある観測視点を自動解析。</p>
+                  </div>
+                </div>
+                <div className="flex gap-6 group">
+                  <div className="w-14 h-14 rounded-sm border border-amber-500/20 bg-amber-500/5 flex items-center justify-center shrink-0 group-hover:border-amber-500/50 transition-colors">
+                    <Eye className="w-6 h-6 text-amber-500" />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-medium mb-2 tracking-[0.1em] uppercase text-sm">CORE 02 | HUMAN INSIGHT</h4>
+                    <p className="text-xs text-slate-500 leading-relaxed max-w-sm italic mb-2">Market sentiment and "No-Trade" discipline.</p>
+                    <p className="text-sm text-slate-400">市場心理、初動・過熱・錯覚。そして最も重要な「やらない判断」を導出。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative flex justify-center">
+              <div className="w-full max-w-md aspect-square bg-gradient-to-br from-[#0c1018] to-black border border-white/5 rounded-full flex items-center justify-center relative group">
+                <div className="absolute inset-0 border border-amber-500/5 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+                <div className="absolute inset-10 border border-white/5 rounded-full animate-[spin_30s_linear_infinite]"></div>
+                <div className="absolute inset-20 border border-amber-500/10 rounded-full animate-[spin_20s_linear_infinite_reverse]"></div>
+                <div className="text-center z-10">
+                  <span className="block text-5xl font-serif text-white tracking-widest">DUAL</span>
+                  <span className="block text-[10px] tracking-[0.8em] text-amber-500 mt-4 font-bold uppercase">Equilibrium</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Distinction */}
+      <section id="strength" className="py-40 bg-[#05070a]">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-24">
+            <h2 className="text-[10px] tracking-[0.5em] text-amber-500 uppercase mb-6 font-bold">The Distinction</h2>
+            <h3 className="text-4xl md:text-5xl font-serif font-light text-white">
+              このGPTsは「予想屋」ではない
+            </h3>
+            <p className="text-slate-500 mt-4 text-sm tracking-[0.2em] font-light italic">More than a predictor; it's your strategic advisor.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-10">
+            <div className="bg-white/[0.02] border border-white/5 p-12 rounded-sm relative overflow-hidden group">
+              <div className="absolute top-0 left-0 w-1 h-full bg-slate-800 opacity-30 group-hover:bg-amber-800 transition-colors"></div>
+              <div className="flex items-center gap-4 mb-10 opacity-40">
+                <ZapOff className="w-5 h-5" />
+                <span className="text-xs tracking-[0.2em] uppercase font-bold">Common AI Tools</span>
+              </div>
+              <ul className="space-y-8 text-sm text-slate-500 font-light text-left">
+                <li className="flex items-center gap-4">
+                  <span className="w-5 h-[1px] bg-slate-700 shrink-0"></span> 上がる／下がるの断定 <span className="text-[10px] ml-auto opacity-50 uppercase tracking-widest">Binary Logic</span>
+                </li>
+                <li className="flex items-center gap-4">
+                  <span className="w-5 h-[1px] bg-slate-700 shrink-0"></span> 銘柄名の羅列 <span className="text-[10px] ml-auto opacity-50 uppercase tracking-widest">Random Lists</span>
+                </li>
+                <li className="flex items-center gap-4">
+                  <span className="w-5 h-[1px] bg-slate-700 shrink-0"></span> 根拠の薄い自信 <span className="text-[10px] ml-auto opacity-50 uppercase tracking-widest">Fake Confidence</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-amber-950/5 border border-amber-500/20 p-12 rounded-sm relative overflow-hidden group">
+              <div className="absolute top-0 left-0 w-1 h-full bg-amber-500 opacity-60"></div>
+              <div className="flex items-center gap-4 mb-10 text-left">
+                <ShieldCheck className="w-5 h-5 text-amber-500" />
+                <span className="text-xs tracking-[0.2em] text-amber-500 uppercase font-bold">Dual Core 2026GPTs</span>
+              </div>
+              <ul className="space-y-8 text-sm text-slate-300 text-left">
+                <li className="flex items-center gap-4 group/item">
+                  <div className="w-5 h-[1px] bg-amber-500 shrink-0"></div> 「今はやるな」を言える <span className="text-[10px] ml-auto text-amber-500/60 uppercase tracking-widest">Disciplined Patience</span>
+                </li>
+                <li className="flex items-center gap-4 group/item">
+                  <div className="w-5 h-[1px] bg-amber-500 shrink-0"></div> 市場のフェーズ分解 <span className="text-[10px] ml-auto text-amber-500/60 uppercase tracking-widest">Phase Analysis</span>
+                </li>
+                <li className="flex items-center gap-4 group/item">
+                  <div className="w-5 h-[1px] bg-amber-500 shrink-0"></div> 答え合わせ前提の分析 <span className="text-[10px] ml-auto text-amber-500/60 uppercase tracking-widest">Logical Verification</span>
+                </li>
+                <li className="flex items-center gap-4 group/item">
+                  <div className="w-5 h-[1px] bg-amber-500 shrink-0"></div> 行動指針まで落とし込む <span className="text-[10px] ml-auto text-amber-500/60 uppercase tracking-widest">Actionable Intel</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-24 text-center">
+            <p className="text-2xl md:text-3xl font-serif text-white italic opacity-80 mb-6 font-light">
+              "The hardest thing in trading is the courage to wait."
+            </p>
+            <p className="text-xs text-amber-500 tracking-[0.4em] uppercase font-bold">
+              見送る勇気を言語化する、唯一の羅針盤。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Capabilities */}
+      <section id="feature" className="py-40 bg-[#080a0f] border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col lg:flex-row justify-between items-end mb-24 gap-10">
+            <div className="max-w-2xl text-left">
+              <h2 className="text-[10px] tracking-[0.5em] text-amber-500 uppercase mb-6 font-bold">Capabilities</h2>
+              <h3 className="text-4xl md:text-5xl font-serif font-light text-white leading-tight">
+                Global Market Analysis<br />
+                <span className="text-slate-500">実現できること</span>
+              </h3>
+            </div>
+            <div className="text-left lg:text-right border-l lg:border-l-0 lg:border-r border-amber-500/30 pl-8 lg:pr-8">
+              <p className="text-slate-400 text-sm tracking-widest font-light leading-relaxed">
+                Not a trading bot, but a <br className="hidden lg:block" />
+                <span className="text-white font-medium italic">Decision Support System.</span>
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
+            {[
+              { en: "Cross-Asset Analysis", jp: "多角的な横断分析", desc: "日本株・米国株・指数・暗号資産の相関関係を瞬時に解析。" },
+              { en: "Leading Signal Detection", jp: "先行シグナル解析", desc: "SOX / BTC / 為替 / VIX 等から市場の予兆を捉える。" },
+              { en: "Sentiment Visualization", jp: "市場の温度感可視化", desc: "「強いが熱くない」といった抽象的な感度を言語化。" },
+              { en: "Strategic Guidance", jp: "判断補助", desc: "押し目・様子見・警戒。今取るべき具体的スタンスの提案。" },
+              { en: "Content Generation", jp: "発信サポート", desc: "Xやnote向けに、論理的かつ説得力のある分析文を生成。" },
+              { en: "Cognitive Refinement", jp: "思考の整理", desc: "GPTとの対話を通じ、あなた自身の相場観を研ぎ澄ます。" }
+            ].map((item, idx) => (
+              <div key={idx} className="bg-black/40 border border-white/5 p-16 hover:bg-white/[0.02] transition-all duration-500 group text-left">
+                <div className="text-amber-500/20 text-xs mb-10 font-mono tracking-widest group-hover:text-amber-500 transition-colors">FUNCTION_0{idx + 1}</div>
+                <h4 className="text-white mb-2 tracking-[0.15em] font-medium text-sm uppercase">{item.en}</h4>
+                <p className="text-amber-500/80 text-xs mb-6 font-bold">{item.jp}</p>
+                <p className="text-sm text-slate-500 leading-relaxed font-light group-hover:text-slate-400 transition-colors">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5: Grading */}
+      <section id="grading" className="py-40 bg-[#05070a] border-t border-white/5">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-[10px] tracking-[0.5em] text-amber-500 uppercase mb-6 font-bold">Performance Grading</h2>
+            <h3 className="text-4xl md:text-5xl font-serif font-light text-white mb-6">
+              投資系GPTs 航海性能格付け
+            </h3>
+            <p className="text-slate-400 text-lg font-serif italic opacity-70">
+              数字だけでは、相場は渡れない。必要なのは「生き残るための性能」。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-24">
+            {evaluationCriteria.map((item, i) => (
+              <div key={i} className="bg-white/[0.02] border border-white/5 p-6 rounded-sm text-center group hover:bg-white/[0.04] transition-all">
+                <div className="text-amber-500 mb-4 flex justify-center">{item.icon}</div>
+                <h4 className="text-[11px] text-white uppercase tracking-widest font-bold mb-1">{item.title}</h4>
+                <p className="text-[9px] text-slate-500 uppercase tracking-tighter mb-3 font-mono">{item.en}</p>
+                <p className="text-[10px] text-slate-500 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="overflow-x-auto mb-20">
+            <table className="w-full text-left border-collapse min-w-[800px]">
+              <thead>
+                <tr className="border-b border-white/10 text-[9px] text-slate-500 uppercase tracking-[0.2em] font-bold">
+                  <th className="py-6 px-4">GPTs Category</th>
+                  <th className="py-6 px-4">相場構造</th>
+                  <th className="py-6 px-4">リスク管理</th>
+                  <th className="py-6 px-4">再現性</th>
+                  <th className="py-6 px-4">煽り耐性</th>
+                  <th className="py-6 px-4">思想一貫性</th>
+                  <th className="py-6 px-4 text-center">Total Score</th>
+                  <th className="py-6 px-4 text-right">Rank</th>
+                </tr>
+              </thead>
+              <tbody className="text-[12px] font-mono">
+                {comparisonData.map((row, i) => (
+                  <tr 
+                    key={i} 
+                    className={`border-b border-white/5 transition-all ${row.highlight ? 'bg-amber-500/5 text-white' : 'text-slate-500 hover:text-slate-300'}`}
+                  >
+                    <td className={`py-6 px-4 font-sans tracking-wider ${row.highlight ? 'font-bold text-amber-500' : ''}`}>
+                      {row.name}
+                    </td>
+                    <td className="py-6 px-4">{row.structural}</td>
+                    <td className="py-6 px-4">{row.risk}</td>
+                    <td className="py-6 px-4">{row.repro}</td>
+                    <td className="py-6 px-4">{row.anti}</td>
+                    <td className="py-6 px-4">{row.logic}</td>
+                    <td className={`py-6 px-4 text-center font-bold ${row.highlight ? 'text-white' : ''}`}>
+                      {row.total}
+                    </td>
+                    <td className="py-6 px-4 text-right">
+                      <span className={`text-xl font-serif italic ${row.highlight ? 'text-amber-500 font-bold scale-110' : 'text-slate-700'}`}>
+                        {row.rank}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="space-y-6 text-left">
+              <h4 className="text-xs tracking-[0.3em] text-amber-500 uppercase font-bold border-b border-amber-500/20 pb-4">
+                Rank Definition / ランク定義
+              </h4>
+              <ul className="space-y-4 text-xs font-light tracking-wide text-slate-400">
+                <li className="flex gap-4">
+                  <span className="text-amber-500 font-bold font-serif w-8 text-center">S+</span>
+                  <span>長期航海・複利向け。判断の質を最優先する投資家向け。</span>
+                </li>
+                <li className="flex gap-4">
+                  <span className="text-slate-600 font-bold font-serif w-8 text-center">A</span>
+                  <span>一定の分析力はあるが、裁量補助（人間的洞察）は弱い。</span>
+                </li>
+                <li className="flex gap-4">
+                  <span className="text-slate-600 font-bold font-serif w-8 text-center">B</span>
+                  <span>特定分野に偏る（テクニカル指標の読み上げ専用など）。</span>
+                </li>
+                <li className="flex gap-4">
+                  <span className="text-slate-600 font-bold font-serif w-8 text-center">C-D</span>
+                  <span>情報取得・単発の煽り系予測。判断補助としては不十分。</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white/[0.02] border border-amber-500/30 p-10 rounded-sm relative text-left">
+              <div className="absolute -top-4 -left-4 bg-amber-600 text-black text-[10px] font-bold px-3 py-1 uppercase tracking-tighter">
+                Critical Difference
+              </div>
+              <h4 className="text-white text-lg font-serif mb-6 leading-relaxed">
+                なぜ DUAL CORE 2026GPTs は S+ なのか
+              </h4>
+              <p className="text-slate-400 text-sm leading-relaxed mb-6 font-light">
+                多くの投資系GPTsは、「今どうするか」しか語れない。<br />
+                DUAL CORE 2026GPTsは、<span className="text-amber-500 font-medium font-serif italic underline decoration-amber-500/30 underline-offset-4">「なぜ今は動かないのか」</span>を説明できる。
+              </p>
+              <p className="text-slate-500 text-xs leading-relaxed italic border-l-2 border-white/10 pl-4 font-light">
+                この差は短期では見えない。だが、長期では致命的な差になる。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 6: Proof */}
+      <section className="py-40 bg-[#0a0d14] relative overflow-hidden border-t border-white/5">
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-600/5 to-transparent pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-24 items-center">
+            <div className="order-2 lg:order-1">
+              <div className="space-y-4">
+                <div className="p-8 border-l border-amber-500/50 bg-white/[0.02] hover:bg-white/[0.04] transition-all text-left">
+                  <div className="flex justify-between items-center mb-3">
+                    <span className="text-[10px] text-amber-500 tracking-[0.3em] uppercase font-bold">Phase 01: Pre-Market</span>
+                    <span className="text-[10px] text-slate-600 font-mono italic">Prior to SOX/BTC shift</span>
+                  </div>
+                  <p className="text-sm text-white font-light leading-relaxed">大発会前のSOX・BTC先行分析。予兆を捉え、準備を促す。</p>
+                </div>
+                <div className="p-8 border-l border-white/10 bg-white/[0.01] hover:bg-white/[0.03] transition-all translate-x-4 md:translate-x-8 text-left">
+                  <div className="flex justify-between items-center mb-3">
+                    <span className="text-[10px] text-slate-500 tracking-[0.3em] uppercase font-bold">Phase 02: Execution</span>
+                    <span className="text-[10px] text-slate-600 font-mono italic">Market Day Confirmation</span>
+                  </div>
+                  <p className="text-sm text-white/80 font-light leading-relaxed">大発会当日の「確認フェーズ」指摘。熱狂をクールダウンさせる。</p>
+                </div>
+                <div className="p-8 border-l border-white/10 bg-white/[0.005] hover:bg-white/[0.02] transition-all translate-x-8 md:translate-x-16 text-left">
+                  <div className="flex justify-between items-center mb-3">
+                    <span className="text-[10px] text-slate-500 tracking-[0.3em] uppercase font-bold">Phase 03: Post-Analysis</span>
+                    <span className="text-[10px] text-slate-600 font-mono italic">Continuous Discipline</span>
+                  </div>
+                  <p className="text-sm text-white/60 font-light leading-relaxed">「浮かれるな」の一貫した判断。市場に飲み込まれない視点。</p>
+                </div>
+              </div>
+            </div>
+            <div className="order-1 lg:order-2 text-left">
+              <h2 className="text-[10px] tracking-[0.5em] text-amber-500 uppercase mb-6 font-bold">The Voyage Log</h2>
+              <h3 className="text-4xl md:text-5xl font-serif font-light text-white mb-10 leading-tight">
+                この分析は、すでに<br />“航海記録”として公開されている
+              </h3>
+              <p className="text-slate-400 mb-10 leading-relaxed font-light">
+                事前 → 当日 → 翌日。<br />
+                すべて同じ思想で繋がっている。<br />
+                <span className="italic text-slate-500 mt-2 block font-serif text-sm">Not hindsight, but strategic navigation planning.</span>
+              </p>
+              <a href={purchaseLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 text-amber-500 text-[10px] tracking-[0.4em] uppercase group transition-all font-bold">
+                Review Archives / 分析記録を閲覧 <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 7: Pricing */}
+      <section id="pricing" className="py-40 bg-[#05070a]">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-[10px] tracking-[0.5em] text-amber-500 uppercase mb-6 font-bold">Investment Strategy</h2>
+          <h3 className="text-4xl font-serif font-light text-white mb-16 italic text-center">Your Subscription</h3>
+          
+          <div className="bg-gradient-to-b from-[#0c1018] to-black border border-amber-500/30 p-16 md:p-24 relative overflow-hidden group shadow-2xl shadow-amber-950/10">
+            <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-amber-500 to-transparent opacity-50"></div>
+            
+            <div className="mb-16">
+              <p className="text-slate-500 text-[10px] tracking-[0.4em] uppercase mb-4 font-bold">Premium Early Access / プレミアム先行</p>
+              
+              {/* Added requested disclaimer text */}
+              <div className="mb-8 space-y-2">
+                <p className="text-amber-500/80 text-[10px] tracking-[0.2em] uppercase font-bold">This is not a discount.</p>
+                <p className="text-slate-500 text-[9px] tracking-[0.15em] uppercase font-light leading-relaxed max-w-xs mx-auto">
+                  This is a Premium Early Access Phase before full exposure.
+                </p>
+              </div>
+
+              <div className="flex items-baseline justify-center gap-6">
+                <span className="text-6xl md:text-[100px] font-serif text-white tracking-tighter">¥3,480</span>
+                <span className="text-slate-600 line-through text-xl md:text-2xl font-light">¥3,980</span>
+              </div>
+              <p className="text-amber-500 text-[10px] tracking-[0.5em] uppercase mt-8 font-bold">Limited Phase / プレミアム先行（1ヶ月）</p>
+            </div>
+
+            <div className="space-y-6 mb-16 max-w-sm mx-auto">
+              <div className="flex justify-between items-center text-xs border-b border-white/5 pb-3">
+                <span className="text-slate-500 uppercase tracking-widest">Regular Price / 通常価格</span>
+                <span className="text-slate-300 font-medium tracking-widest">¥3,980</span>
+              </div>
+              <div className="flex justify-between items-center text-xs border-b border-white/5 pb-3">
+                <span className="text-slate-500 uppercase tracking-widest">Updates</span>
+                <span className="text-slate-300 font-medium tracking-widest">Complimentary</span>
+              </div>
+              <div className="flex justify-between items-center text-xs border-b border-white/5 pb-3">
+                <span className="text-slate-500 uppercase tracking-widest">Global Support</span>
+                <span className="text-slate-300 font-medium tracking-widest italic">All Green</span>
+              </div>
+            </div>
+
+            <a href={purchaseLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full bg-white text-black font-bold py-6 tracking-[0.3em] uppercase hover:bg-amber-600 hover:text-white transition-all duration-700 mb-10 shadow-lg shadow-white/5 group-hover:scale-[1.02]">
+              プレミアム先行 3,480円で参加する
+            </a>
+
+            <div className="flex items-center justify-center gap-4 opacity-40 group-hover:opacity-100 transition-opacity">
+               <div className="flex items-center gap-2">
+                 <Lock className="w-3 h-3 text-amber-500" />
+                 <span className="text-[10px] uppercase tracking-widest">Secure Payment via note</span>
+               </div>
+            </div>
+          </div>
+
+          <div className="mt-20 flex flex-col items-center gap-6 opacity-40">
+            <div className="w-[1px] h-20 bg-gradient-to-b from-amber-500/50 to-transparent"></div>
+            <p className="text-[10px] tracking-[0.5em] uppercase text-slate-500 font-medium">End of Transmission</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-20 border-t border-white/5 bg-[#05070a]">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
+          <div className="flex items-center gap-3">
+            <div className="w-6 h-6 bg-amber-600/20 border border-amber-600 rounded-sm flex items-center justify-center">
+              <span className="text-amber-500 font-bold text-[8px] tracking-tighter">DC</span>
+            </div>
+            <span className="text-[10px] tracking-[0.4em] uppercase font-bold text-white/40">Dual Core 2026</span>
+          </div>
+          
+          <div className="flex gap-8 text-[10px] tracking-widest uppercase text-slate-600">
+            <a href="#" className="hover:text-amber-500 transition-colors">Twitter (X)</a>
+            <a href={purchaseLink} className="hover:text-amber-500 transition-colors">Note Official</a>
+            <a href="#" className="hover:text-amber-500 transition-colors">Privacy</a>
+          </div>
+          
+          <p className="text-[9px] tracking-widest uppercase text-slate-700">
+            &copy; 2024 Dual Core AI Systems. All Rights Reserved.
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
